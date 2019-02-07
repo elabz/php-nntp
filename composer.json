@@ -1,5 +1,5 @@
 {
-    "name": "elabz/nntp",
+    "name": "elabz/php-nntp",
     "description": "Client for communicating with servers throught the Network News Transfer Protocol (NNTP) protocol.",
     "type": "library",
     "license": "MIT",
