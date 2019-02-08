@@ -26,7 +26,7 @@ use Rvdv\Nntp\Socket\SocketInterface;
  */
 class Connection implements ConnectionInterface
 {
-    const BUFFER_SIZE = 2048;
+    const BUFFER_SIZE = 4096;
 
     /**
      * @var string
