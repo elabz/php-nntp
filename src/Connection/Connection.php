@@ -151,13 +151,12 @@ class Connection implements ConnectionInterface
 
         while (!$this->socket->eof()) {
             $line = $this->socket->gets(self::BUFFER_SIZE);
-            if ("\r\n" !== substr($line, -2) || strlen($line) < 2) {
+            if (!preg_match('/\r?\n$/', $line)) {// not all articles are formed to standard
                 continue;
             }
 
             // Remove CR LF from the end of the line.
-            $line = substr($line, 0, -2);
-
+            $line = preg_replace('/\r?\n$/', '', $line);
             // Check if the line terminates the text response.
             if ('.' === $line) {
                 return new MultiLineResponse($response, $lines);
