@@ -191,6 +191,14 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
+    public function stat($article)
+    {
+        return $this->sendCommand(new Command\StatCommand($article));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function xfeature($feature)
     {
         return $this->sendCommand(new Command\XFeatureCommand($feature));

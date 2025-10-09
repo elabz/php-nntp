@@ -138,6 +138,15 @@ interface ClientInterface
     public function quit();
 
     /**
+     * Send the STAT command.
+     *
+     * @param $article The message-id or article number
+     *
+     * @return \Rvdv\Nntp\Command\StatCommand
+     */
+    public function stat($article);
+
+    /**
      * Send the XFEATURE command.
      *
      * @param $feature
