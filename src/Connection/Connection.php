@@ -69,11 +69,8 @@ class Connection implements ConnectionInterface
      */
     public function connect()
     {
-        $this->socket->connect(sprintf('tcp://%s:%d', $this->host, $this->port));
-
-        if ($this->secure) {
-            $this->socket->enableCrypto(true);
-        }
+        $scheme = $this->secure ? 'ssl' : 'tcp';
+        $this->socket->connect(sprintf('%s://%s:%d', $scheme, $this->host, $this->port));
 
         return $this->getResponse();
     }
